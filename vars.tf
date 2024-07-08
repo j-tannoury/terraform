@@ -18,3 +18,15 @@ variable "AMIs" {
     "us-west-2":"ami-0688ba7eeeeefe3cd"
   }
 }
+
+variable "PATH_TO_PRIVATE_KEY" {
+  default = "access_key"
+}
+
+variable "PATH_TO_PUBLIC_KEY" {
+  default = "access_key.pub"
+}
+
+variable "INSTANCE_USERNAME" {
+  default = "ubuntu"
+}
