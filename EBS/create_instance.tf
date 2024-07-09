@@ -8,6 +8,8 @@ resource "aws_instance" "example_instance" {
   instance_type = "t2.micro"
   key_name = aws_key_pair.levelup_key.key_name
   availability_zone = "us-east-1a"
+  user_data = file("install_appache.sh")
+
 
   tags = {
     Name = "demoinstance"
@@ -31,4 +33,8 @@ resource "aws_volume_attachment" "aws-volume-1-attachment" {
   device_name = "/dev/xvdh"
   volume_id = aws_ebs_volume.ebs-volume-1.id
   instance_id = aws_instance.example_instance.id
+}
+
+output "public_ip" {
+  value = aws_instance.example_instance.public_ip
 }
